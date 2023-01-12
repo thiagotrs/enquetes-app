@@ -13,11 +13,18 @@ Esse projeto inclui: API e Web App
 - NestJs
 - Typescript
 - Google Cloud Functions
-- Firebase Hosting
+- Netlify
 
-## Diagrama de Entidade e Relacionamentos
+## Diagrama do modelo de dados
 
-Houve alterações no diagrama.
+<img src="modelo-dados.jpg" width="100%" />
+
+Houve alterações no diagrama:
+
+- Um Questionário tem muitas Perguntas e muitas Respostas
+- Uma Resposta tem muitos items de resposta
+- Uma Pergunta tem muitos item de resposta
+- Um Usuário cria muitos questionários e responde a muitas respostas
 
 ## Acesso ao sistema
 
@@ -25,9 +32,9 @@ Houve alterações no diagrama.
 
 - https://enquetes-function-t4ptokxoba-uc.a.run.app/ (cloud function - backend)
 
-Importante: deve-se esperar um tempo para a cloud function rodar completamente.
+**Importante:** deve-se esperar um tempo para a cloud function rodar completamente.
 
-- url (webapp - frontend)
+- https://enquetes-app.netlify.app/ (webapp - frontend)
 
 Acesse o sistema com as seguintes credenciais:
 
@@ -63,6 +70,7 @@ docker-compose up -d
 
 ```shell
 cd api
+npm install
 npm run start:dev
 ```
 
@@ -70,6 +78,7 @@ npm run start:dev
 
 ```shell
 cd web
+npm install
 npm run dev
 ```
 
@@ -88,7 +97,7 @@ JWT_SECRET = secret
 JWT_EXP = 1600s
 ```
 
-Crie um arquivo '.env.local' na raiz do diretório api com a seguinte variável de ambiente:
+Crie um arquivo '.env.local' na raiz do diretório web com a seguinte variável de ambiente:
 
 ```
 NEXT_PUBLIC_API = 'http://localhost:4000'
